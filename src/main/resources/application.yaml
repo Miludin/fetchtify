@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: fetchtify
+
+  security:
+    oauth2:
+      client:
+        registration:
+          spotify:
+            client-id: ${CLIENT_ID}
+            client-secret: ${CLIENT_SECRET}
+            authorization-grant-type: client_credentials
+        provider:
+          spotify:
+            token-uri: https://accounts.spotify.com/api/token
+
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:5432/artists_storage
+    username: postgres
+    password: secretpassword
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+spotify:
+  url: https://api.spotify.com/v1
+  artist:
+    ids: >
+      2ye2Wgw4gimLv2eAKyk1NB,
+      6mdiAmATAx73kdxrNrnlao,
+      3HR1xtIsUefdFnkI1XHgeA,
+      711MCceyCBcFnzjGY4Q7Un,
+      223iUzG0kb5V166FJP9ovD,
+      0oSGxfWSnnOXhD2fKuz2Gy,
+      7lzordPuZEXxwt9aoVZYmG,
+      0SD4eZCN4Kr0wQk56hCdh2,
+      762310PdDnwsDxAQxzQkfX,
+      6olE6TJLqED3rqDCT0FyPh
